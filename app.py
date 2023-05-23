@@ -26,7 +26,12 @@ def predict_image(img):
         'best_predict': list(res),
     }
     return response
-  
+
+@app.route('/', methods=['GET'])
+def index():
+    res = {"app": "Text sentiment analysis for social media"}
+    return jsonify(res)
+
 @app.route('/predict', methods=['POST'])
 def predict():
     file = request.files['image']
