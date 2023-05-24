@@ -29,11 +29,6 @@ def predict_image(img):
     }
     return response
 
-@app.route('/', methods=['GET'])
-def index():
-    res = {"app": "Text sentiment analysis for social media"}
-    return jsonify(res)
-
 def fetch_user_tweets(user):
   maxTweets = 500
 
@@ -71,6 +66,11 @@ def fetch_tweets_from_id(tweet_id):
       tweets_list.append(curr_dict)
   return tweets_list
 
+
+@app.route('/', methods=['GET'])
+def index():
+    res = {"app": "Text sentiment analysis for social media"}
+    return jsonify(res)
 
 @app.route('/fetch_user_tweets', methods=['GET'])
 def fetch_user_tweets_route():
